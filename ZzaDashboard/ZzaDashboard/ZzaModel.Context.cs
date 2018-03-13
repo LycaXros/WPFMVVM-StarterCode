@@ -20,11 +20,11 @@ namespace ZzaDashboard
         public ZzaEntities()
             : base("ZzaEntities")
         {
-
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {// Table names match entity names by default (don't pluralize)
+        {
+            // Table names match entity names by default (don't pluralize)
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             // Globally disable the convention for cascading deletes
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();

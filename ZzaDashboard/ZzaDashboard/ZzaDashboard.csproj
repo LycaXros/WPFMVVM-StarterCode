@@ -100,7 +100,7 @@
     <Compile Include="OrderItemOption.cs">
       <DependentUpon>ZzaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="OrderStatu.cs">
+    <Compile Include="OrderStatus.cs">
       <DependentUpon>ZzaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">

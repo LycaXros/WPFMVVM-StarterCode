@@ -287,7 +287,7 @@
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderItem_Order" FromRole="OrderItem" ToRole="Order" />
           <NavigationProperty Name="Product" Relationship="Self.FK_OrderItem_Product" FromRole="OrderItem" ToRole="Product" />
           <NavigationProperty Name="ProductSize" Relationship="Self.FK_OrderItem_ProductSize" FromRole="OrderItem" ToRole="ProductSize" />
-          <NavigationProperty Name="OrderItemOptions" Relationship="Self.FK_OrderItemOption_OrderItem" FromRole="OrderItem" ToRole="OrderItemOption" />
+          <NavigationProperty Name="Options" Relationship="Self.FK_OrderItemOption_OrderItem" FromRole="OrderItem" ToRole="OrderItemOption" />
         </EntityType>
         <EntityType Name="OrderItemOption">
           <Key>
@@ -302,7 +302,7 @@
           <NavigationProperty Name="OrderItem" Relationship="Self.FK_OrderItemOption_OrderItem" FromRole="OrderItemOption" ToRole="OrderItem" />
           <NavigationProperty Name="ProductOption" Relationship="Self.FK_OrderItemOption_ProductOption" FromRole="OrderItemOption" ToRole="ProductOption" />
         </EntityType>
-        <EntityType Name="OrderStatu">
+        <EntityType Name="OrderStatus">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -363,7 +363,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_OrderStatus">
-          <End Role="OrderStatus" Type="Self.OrderStatu" Multiplicity="1" />
+          <End Role="OrderStatus" Type="ZzaModel.OrderStatus" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OrderStatus">
@@ -434,12 +434,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ZzaEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
           <EntitySet Name="OrderItemOptions" EntityType="Self.OrderItemOption" />
-          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
+          <EntitySet Name="OrderStatus1" EntityType="ZzaModel.OrderStatus" />
           <EntitySet Name="Products" EntityType="Self.Product" />
           <EntitySet Name="ProductOptions" EntityType="Self.ProductOption" />
           <EntitySet Name="ProductSizes" EntityType="Self.ProductSize" />
@@ -448,7 +448,7 @@
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
-            <End Role="OrderStatus" EntitySet="OrderStatus" />
+            <End Role="OrderStatus" EntitySet="OrderStatus1" />
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderItem_Order" Association="Self.FK_OrderItem_Order">
@@ -477,7 +477,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ZzaModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="ZzaModelStoreContainer" CdmEntityContainer="ZzaEntities1">
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="ZzaModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
@@ -540,8 +540,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrderStatus">
-            <EntityTypeMapping TypeName="ZzaModel.OrderStatu">
+          <EntitySetMapping Name="OrderStatus1">
+            <EntityTypeMapping TypeName="ZzaModel.OrderStatus">
               <MappingFragment StoreEntitySet="OrderStatus">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
