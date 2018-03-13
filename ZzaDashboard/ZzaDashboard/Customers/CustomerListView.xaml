@@ -4,12 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:cust="clr-namespace:ZzaDashboard.Customers"
+             xmlns:local="clr-namespace:ZzaDashboard"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <!--<UserControl.DataContext>
+    <UserControl.DataContext>
         <cust:CustomerListViewModel />
-    </UserControl.DataContext>-->
+    </UserControl.DataContext>
     <Grid>
-        <DataGrid ItemsSource="{Binding Customers}" />
+        <DataGrid ItemsSource="{Binding Customers}"></DataGrid>
     </Grid>
 </UserControl>
