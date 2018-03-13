@@ -22,7 +22,7 @@ namespace ZzaDashboard.Customers
     {
         public CustomerListView()
         {
-            this.DataContext = new CustomerListViewModel();
+            //this.DataContext = new CustomerListViewModel();
             InitializeComponent();
         }
     }

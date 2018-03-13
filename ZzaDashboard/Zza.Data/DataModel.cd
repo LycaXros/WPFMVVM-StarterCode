@@ -1,42 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Zza.Data.Order">
-    <Position X="4.5" Y="1.25" Width="1.5" />
+    <Position X="1.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAEAAAEAAAAACAAAAAAAAAAAAAAIQAAAAAAAAgAAAAg=</HashCode>
+      <HashCode>CBAGAAAEAAEAAAAEBAAAEAAAAgAIARAAAAABIAAAAAA=</HashCode>
       <FileName>Order.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Zza.Data.Customer">
-    <Position X="6.75" Y="1.25" Width="1.5" />
+    <Position X="5.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAACAAAAAIAAAACAAAAAAAABACAAAAJAAAAAg=</HashCode>
+      <HashCode>AAECAEAAACAAAIAIAAAAGAAAAAAAAAAAAAIAJAAAAAg=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Zza.Data.OrderItem">
-    <Position X="6.25" Y="4.25" Width="1.5" />
+    <Position X="3.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAQIAAAAAAABgAAAAAA=</HashCode>
+      <HashCode>MAECAAAAAAAAgAAAAAAAEAAAAAAIQAAAAAAAgAJAAAA=</HashCode>
       <FileName>OrderItem.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Zza.Data.Product">
-    <Position X="8.5" Y="4.25" Width="1.5" />
+    <Position X="7.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>MAAAAAAAAAEAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACgAAAAAAgAAAAAAAAAAQAAAAAAJAAwQAAAAAAAAA=</HashCode>
       <FileName>Product.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Zza.Data.ProductOption">
-    <Position X="12.75" Y="5" Width="1.5" />
+    <Position X="4.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAABAAIAAAAEAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>ProductOption.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Zza.Data.ProductOptionItem">
-    <Position X="10.25" Y="5" Width="2" />
+    <Position X="7.75" Y="5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAgAQAAAA=</HashCode>
       <FileName>ProductOptionItem.cs</FileName>

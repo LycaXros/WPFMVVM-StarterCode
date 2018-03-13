@@ -268,7 +268,7 @@
           <Property Name="DeliveryZip" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="ItemsTotal" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
           <NavigationProperty Name="Customer" Relationship="Self.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
-          <NavigationProperty Name="OrderStatu" Relationship="Self.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
+          <NavigationProperty Name="Status" Relationship="Self.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
           <NavigationProperty Name="OrderItems" Relationship="Self.FK_OrderItem_Order" FromRole="Order" ToRole="OrderItem" />
         </EntityType>
         <EntityType Name="OrderItem">
@@ -434,7 +434,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ZzaEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ZzaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
           <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
@@ -477,7 +477,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ZzaModelStoreContainer" CdmEntityContainer="ZzaEntities1">
+        <EntityContainerMapping StorageEntityContainer="ZzaModelStoreContainer" CdmEntityContainer="ZzaEntities">
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="ZzaModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
