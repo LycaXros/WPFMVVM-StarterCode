@@ -4,12 +4,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
-using Zza.Data;
 namespace ZzaDashboard.Services
 {
     public class OrdersRepository : IOrdersRepository
     {
-        ZzaDbContext _context = new ZzaDbContext();
+        ZzaEntities _context = new ZzaEntities();
 
         public async Task<List<Order>> GetOrdersForCustomersAsync(Guid customerId)
         {
@@ -79,7 +78,7 @@ namespace ZzaDashboard.Services
 
         public async Task<List<OrderStatus>> GetOrderStatusesAsync()
         {
-            return await _context.OrderStatuses.ToListAsync();
+            return await _context.OrderStatus.ToListAsync();
         }
     }
 }

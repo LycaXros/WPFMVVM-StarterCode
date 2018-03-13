@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using Zza.Data;
 
 namespace ZzaDashboard.Services
 {
     public class CustomersRepository : ICustomersRepository
     {
-        ZzaDbContext _context = new ZzaDbContext();
+        ZzaEntities _context = new ZzaEntities();
 
         public Task<List<Customer>> GetCustomersAsync()
         {
