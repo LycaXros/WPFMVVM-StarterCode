@@ -5,7 +5,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 
-namespace Zza.Data
+namespace ZzaData
 {
     public class ZzaDbContext : DbContext
     {

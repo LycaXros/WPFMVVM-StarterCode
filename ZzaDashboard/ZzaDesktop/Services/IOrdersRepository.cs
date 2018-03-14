@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ZzaData;
 
-namespace ZzaDashboard.Services
+namespace ZzaDesktop.Services
 {
     public interface IOrdersRepository
     {

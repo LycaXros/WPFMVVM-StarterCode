@@ -4,7 +4,9 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Transactions;
-namespace ZzaDashboard.Services
+using ZzaData;
+
+namespace ZzaDesktop.Services
 {
     public class OrdersRepository : IOrdersRepository
     {

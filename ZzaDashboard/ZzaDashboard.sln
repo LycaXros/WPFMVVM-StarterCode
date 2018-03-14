@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZzaDashboard", "ZzaDashboard\ZzaDashboard.csproj", "{B4BAF275-1AAD-408E-AC04-1DBE32FD855E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zza.Data", "Zza.Data\Zza.Data.csproj", "{BB1E80DE-E6D1-4E29-BC2D-DB66B81163C5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZzaDesktop", "ZzaDesktop\ZzaDesktop.csproj", "{152CD985-6E3D-4131-ADF2-9196DDCCFD90}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B4BAF275-1AAD-408E-AC04-1DBE32FD855E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4BAF275-1AAD-408E-AC04-1DBE32FD855E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4BAF275-1AAD-408E-AC04-1DBE32FD855E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4BAF275-1AAD-408E-AC04-1DBE32FD855E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB1E80DE-E6D1-4E29-BC2D-DB66B81163C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BB1E80DE-E6D1-4E29-BC2D-DB66B81163C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB1E80DE-E6D1-4E29-BC2D-DB66B81163C5}.Release|Any CPU.ActiveCfg = Release|Any CPU

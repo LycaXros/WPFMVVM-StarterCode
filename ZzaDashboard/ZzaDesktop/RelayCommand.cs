@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 
-namespace ZzaDashboard
+namespace ZzaDesktop
 {
     public class RelayCommand : ICommand
     {

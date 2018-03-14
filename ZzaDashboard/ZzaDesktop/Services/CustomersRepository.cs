@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using ZzaData;
 
-namespace ZzaDashboard.Services
+namespace ZzaDesktop.Services
 {
     public class CustomersRepository : ICustomersRepository
     {

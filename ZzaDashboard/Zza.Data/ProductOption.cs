@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ZzaDashboard
+namespace ZzaData
 {
     using System;
     using System.Collections.Generic;
