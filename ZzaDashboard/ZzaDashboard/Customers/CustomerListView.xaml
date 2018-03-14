@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:cust="clr-namespace:ZzaDashboard.Customers"
-             xmlns:data="clr-namespace:ZzaDashboard"
+             xmlns:local="clr-namespace:ZzaDashboard"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             local:MvvmBehaviors.LoadedMethodName="LoadCustomers">
     <UserControl.InputBindings>
         <KeyBinding Key="D"
                     Modifiers="Ctrl"
@@ -16,7 +17,7 @@
         <cust:CustomerListViewModel />
     </UserControl.DataContext>
     <UserControl.Resources>
-        <DataTemplate DataType="{x:Type data:Customer}">
+        <DataTemplate x:Key="CustomerTemplate">
             <Border BorderThickness="3"
                     BorderBrush="Blue">
                 <StackPanel>
@@ -62,6 +63,6 @@
         </DataGrid>
         <ListBox Grid.Row="2"
                  ItemsSource="{Binding Customers}"
-                 />
+                 ItemTemplate="{StaticResource CustomerTemplate}"/>
     </Grid>
 </UserControl>

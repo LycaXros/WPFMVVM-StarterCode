@@ -94,6 +94,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="MvvmBehaviors.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>ZzaModel.tt</DependentUpon>
     </Compile>

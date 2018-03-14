@@ -16,12 +16,17 @@ namespace ZzaDashboard.Customers
 
         public CustomerListViewModel()
         {
+            DeleteCommand = new RelayCommand(OnDelete, CanDelete);
+        }
+
+        public async void LoadCustomers()
+        {
+
             if (DesignerProperties.GetIsInDesignMode(
                 new System.Windows.DependencyObject())) return;
 
             Customers = new ObservableCollection<Customer>(
-                _repo.GetCustomersAsync().Result);
-            DeleteCommand = new RelayCommand(OnDelete, CanDelete);
+                await _repo.GetCustomersAsync());
         }
 
         private bool CanDelete()
