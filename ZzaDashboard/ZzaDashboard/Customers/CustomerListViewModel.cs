@@ -43,13 +43,14 @@ namespace ZzaDashboard.Customers
 
         public ObservableCollection<Customer> Customers
         {
-            get => _customers;
+            get { return _customers; }
             set
             {
                 if(_customers != value)
                 {
                     _customers = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("Customers"));                }
+                    PropertyChanged(this, new PropertyChangedEventArgs("Customers"));
+                }
             }
         }
         private Customer _selectedCustomer;
