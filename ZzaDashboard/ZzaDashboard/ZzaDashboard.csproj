@@ -93,6 +93,7 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>ZzaModel.tt</DependentUpon>
     </Compile>

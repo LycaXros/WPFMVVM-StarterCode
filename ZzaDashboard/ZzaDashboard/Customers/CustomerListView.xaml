@@ -7,6 +7,11 @@
              xmlns:data="clr-namespace:ZzaDashboard"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.InputBindings>
+        <KeyBinding Key="D"
+                    Modifiers="Ctrl"
+                    Command="{Binding DeleteCommand}" />
+    </UserControl.InputBindings>
     <UserControl.DataContext>
         <cust:CustomerListViewModel />
     </UserControl.DataContext>
@@ -24,14 +29,21 @@
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
+        <Button Content="Eliminar"
+                Command="{Binding DeleteCommand}"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="75"/>
+
         <DataGrid   x:Name="customerDataGrid"
                     AutoGenerateColumns="False"
-                    EnableRowVirtualization="True"
-                    RowDetailsVisibilityMode="VisibleWhenSelected"
-                    ItemsSource="{Binding Customers}">
+                    ItemsSource="{Binding Customers}"
+                    SelectedItem="{Binding SelectedCustomer}"
+                    Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="FirstNameColumn"
                                     Binding="{Binding FirstName}"
@@ -48,7 +60,7 @@
                                     Width="SizeToHeader"/>
             </DataGrid.Columns>
         </DataGrid>
-        <ListBox Grid.Row="1"
+        <ListBox Grid.Row="2"
                  ItemsSource="{Binding Customers}"
                  />
     </Grid>

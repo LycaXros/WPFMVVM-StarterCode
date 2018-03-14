@@ -21,12 +21,36 @@ namespace ZzaDashboard.Customers
 
             Customers = new ObservableCollection<Customer>(
                 _repo.GetCustomersAsync().Result);
+            DeleteCommand = new RelayCommand(OnDelete, CanDelete);
         }
+
+        private bool CanDelete()
+        {
+            return SelectedCustomer != null;
+        }
+
+        private void OnDelete()
+        {
+            Customers.Remove(SelectedCustomer);
+        }
+
+        public RelayCommand DeleteCommand { get; private set; }
+
         public ObservableCollection<Customer> Customers
         {
             get => _customers;
             set => _customers = value;
         }
+        private Customer _selectedCustomer;
+
+        public Customer SelectedCustomer
+        {
+            get { return _selectedCustomer; }
+            set { _selectedCustomer = value;
+                DeleteCommand.RaiseCanExecuteChanged();
+            }
+        }
+
 
     }
 }
