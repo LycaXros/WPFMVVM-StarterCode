@@ -9,7 +9,7 @@ using ZzaDashboard.Services;
 
 namespace ZzaDashboard.Customers
 {
-    public class CustomerListViewModel
+    public class CustomerListViewModel : INotifyPropertyChanged
     {
         private ICustomersRepository _repo = new CustomersRepository();
         private ObservableCollection<Customer> _customers;
@@ -44,18 +44,29 @@ namespace ZzaDashboard.Customers
         public ObservableCollection<Customer> Customers
         {
             get => _customers;
-            set => _customers = value;
+            set
+            {
+                if(_customers != value)
+                {
+                    _customers = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Customers"));                }
+            }
         }
         private Customer _selectedCustomer;
-
         public Customer SelectedCustomer
         {
             get { return _selectedCustomer; }
-            set { _selectedCustomer = value;
-                DeleteCommand.RaiseCanExecuteChanged();
+            set { 
+                if(_selectedCustomer != value)
+                {
+                    _selectedCustomer = value;
+                    DeleteCommand.RaiseCanExecuteChanged();
+                    PropertyChanged(this, new PropertyChangedEventArgs("SelectedCustomer"));
+                }
             }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
 
     }
 }
