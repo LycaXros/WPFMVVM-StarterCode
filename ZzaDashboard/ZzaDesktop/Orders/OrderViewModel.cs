@@ -7,7 +7,14 @@ using System.Threading.Tasks;
 
 namespace ZzaDesktop.Orders
 {
-    class OrderViewModel: ViewModelBase
+    class OrderViewModel : ViewModelBase
     {
+        private Guid _customerId;
+
+        public Guid CustomerId
+        {
+            get => _customerId;
+            set => SetProperty(ref _customerId, value);
+        }
     }
 }

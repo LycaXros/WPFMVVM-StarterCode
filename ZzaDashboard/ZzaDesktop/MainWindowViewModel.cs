@@ -19,7 +19,9 @@ namespace ZzaDesktop
         public MainWindowViewModel()
         {
             NavCommand = new RelayCommand<string>(OnNav);
+            _customerListViewModel.PlaceOrderRequested += NavToOrder;
         }
+
 
         public ViewModelBase CurrentViewModel {
             get => _currentViewModel;
@@ -40,6 +42,11 @@ namespace ZzaDesktop
                     CurrentViewModel = _customerListViewModel;
                     break;
             }
+        }
+        private void NavToOrder(Guid customerId)
+        {
+            _orderViewModel.CustomerId = customerId;
+            CurrentViewModel = _orderViewModel;
         }
     }
 }

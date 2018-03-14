@@ -7,7 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-
-        <TextBlock Text="Order View"    />
+        <StackPanel>
+            <TextBlock Text="Placing order For: "/>
+            <TextBlock Text="{Binding CustomerId}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
