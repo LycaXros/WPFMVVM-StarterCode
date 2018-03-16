@@ -16,6 +16,8 @@ namespace ZzaDesktop.Customers
         public CustomerListViewModel()
         {
             PlaceOrderCommand = new RelayCommand<Customer>(OnPlacerOrder);
+            AddCustomerCommand = new RelayCommand(OnAddCustomer);
+            EditCustomerCommand = new RelayCommand<Customer>(OnEditCustomer);
         }
 
         private ObservableCollection<Customer> _customers;
@@ -32,12 +34,27 @@ namespace ZzaDesktop.Customers
         }
 
         public RelayCommand<Customer> PlaceOrderCommand { get; private set; }
+        public RelayCommand AddCustomerCommand { get; private set; }
+        public RelayCommand<Customer> EditCustomerCommand { get; private set; }
 
         public event Action<Guid> PlaceOrderRequested = delegate { };
+        public event Action<Customer> AddCustomerRequested = delegate { };
+        public event Action<Customer> EditCustomerRequested = delegate { };
 
         private void OnPlacerOrder(Customer customer)
         {
             PlaceOrderRequested(customer.Id);
         }
+
+        private void OnAddCustomer()
+        {
+            AddCustomerRequested(new Customer() { Id = Guid.NewGuid() });
+        }
+
+        private void OnEditCustomer(Customer cust)
+        {
+            EditCustomerRequested(cust);
+        }
+
     }
 }

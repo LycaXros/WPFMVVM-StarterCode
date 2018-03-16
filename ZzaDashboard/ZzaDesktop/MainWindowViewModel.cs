@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZzaData;
 using ZzaDesktop.Customers;
 using ZzaDesktop.OrderPrep;
 using ZzaDesktop.Orders;
@@ -14,14 +15,30 @@ namespace ZzaDesktop
         private CustomerListViewModel _customerListViewModel = new CustomerListViewModel();
         private OrderViewModel _orderViewModel = new OrderViewModel();
         private OrderPrepViewModel _orderPrepViewModel = new OrderPrepViewModel();
+        private AddEditCustomerViewModel _addEditViewModel = new AddEditCustomerViewModel();
 
         private ViewModelBase _currentViewModel;
         public MainWindowViewModel()
         {
             NavCommand = new RelayCommand<string>(OnNav);
             _customerListViewModel.PlaceOrderRequested += NavToOrder;
+            _customerListViewModel.AddCustomerRequested += NavToAddCustomer;
+            _customerListViewModel.EditCustomerRequested += NavToEditCustomer;
         }
 
+        private void NavToEditCustomer(Customer obj)
+        {
+            _addEditViewModel.EditMode = false;
+            _addEditViewModel.SetCustomer(obj);
+            CurrentViewModel = _addEditViewModel;
+        }
+
+        private void NavToAddCustomer(Customer obj)
+        {
+            _addEditViewModel.EditMode = true;
+            _addEditViewModel.SetCustomer(obj);
+            CurrentViewModel = _addEditViewModel;
+        }
 
         public ViewModelBase CurrentViewModel {
             get => _currentViewModel;
