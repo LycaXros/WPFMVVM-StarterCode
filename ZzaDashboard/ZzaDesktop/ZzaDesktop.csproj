@@ -87,6 +87,7 @@
       <DependentUpon>CustomerListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Customers\CustomerListViewModel.cs" />
+    <Compile Include="Customers\SimpleEditableCustomer.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="OrderPrep\OrderPrepView.xaml.cs">
       <DependentUpon>OrderPrepView.xaml</DependentUpon>
@@ -150,6 +151,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ZzaData.Customer.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
