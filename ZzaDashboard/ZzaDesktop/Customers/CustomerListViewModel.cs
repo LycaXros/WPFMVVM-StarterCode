@@ -9,7 +9,7 @@ using ZzaDesktop.Services;
 
 namespace ZzaDesktop.Customers
 {
-    class CustomerListViewModel: ViewModelBase
+    class CustomerListViewModel : ViewModelBase
     {
         private ICustomersRepository _repo;
 
@@ -19,6 +19,7 @@ namespace ZzaDesktop.Customers
             PlaceOrderCommand = new RelayCommand<Customer>(OnPlacerOrder);
             AddCustomerCommand = new RelayCommand(OnAddCustomer);
             EditCustomerCommand = new RelayCommand<Customer>(OnEditCustomer);
+            ClearSearchCommand = new RelayCommand(OnClearSearch);
         }
 
         private ObservableCollection<Customer> _customers;
@@ -28,15 +29,46 @@ namespace ZzaDesktop.Customers
             set { SetProperty(ref _customers, value); }
         }
 
+        private List<Customer> _allCustomers;
+
         public async void LoadCustomers()
         {
-            Customers = new ObservableCollection<Customer>(
-                await _repo.GetCustomersAsync());
+
+            _allCustomers= await _repo.GetCustomersAsync();
+            Customers = new ObservableCollection<Customer>(_allCustomers);
+        }
+
+        private string _searchInput;
+
+        public string SearchInput
+        {
+            get { return _searchInput; }
+            set
+            {
+                SetProperty(ref _searchInput, value);
+                FilterCustomers(_searchInput);
+            }
+        }
+
+        private void FilterCustomers(string searchInput)
+        {
+            if (string.IsNullOrWhiteSpace(searchInput))
+            {
+                Customers = new ObservableCollection<Customer>(_allCustomers);
+                return;
+            }
+            else
+            {
+                Customers = new ObservableCollection<Customer>(
+                    _allCustomers.Where(c => c.FullName.ToLower().Contains(searchInput.ToLower())));
+            }
+
         }
 
         public RelayCommand<Customer> PlaceOrderCommand { get; private set; }
         public RelayCommand AddCustomerCommand { get; private set; }
         public RelayCommand<Customer> EditCustomerCommand { get; private set; }
+        public RelayCommand ClearSearchCommand { get; private set; }
 
         public event Action<Guid> PlaceOrderRequested = delegate { };
         public event Action<Customer> AddCustomerRequested = delegate { };
@@ -57,5 +89,9 @@ namespace ZzaDesktop.Customers
             EditCustomerRequested(cust);
         }
 
+        private void OnClearSearch()
+        {
+            SearchInput = null;
+        }
     }
 }
